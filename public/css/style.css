@@ -8,3 +8,7 @@ h1{
 .not{
     text-decoration: underline;
 }
+
+.toggleSummary{
+display: hidden;
+}

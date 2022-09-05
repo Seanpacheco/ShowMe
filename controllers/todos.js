@@ -25,6 +25,19 @@ module.exports = {
             console.error(error)
         }
     },
+    showSummary: async(req,res)=>{
+        console.log(req.user)
+        try{
+            const name = req.body.showIDfromJS
+            const abc = await fetch(`https://api.tvmaze.com/shows/${name}`)
+            const data = await abc.json()
+            console.log(data)
+            res.render('todos.ejs',{data})
+        } catch(error){
+            console.error(error)
+        }
+    },
+
     addToWatchList: async(req,res)=>{
         console.log(req.user)
         try{
