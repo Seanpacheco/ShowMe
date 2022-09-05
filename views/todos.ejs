@@ -19,10 +19,16 @@
 
     <% watchList.forEach( el => { %>
         <li class='watchListItem' data-id='<%=el.id%>'>
-            <span><%=el.tvShowName%></span>
-            <span class='fa fa-trash'></span>
+            <span class="sum"><%=el.tvShowName%></span>
+            <span></span>
+            <span class='del fa fa-trash'></span>
         </li>
 <% }) %>  
+
+<div>
+    <img class="sumImg" src="" alt="">
+    <p class="summary"></p>
+</div>
 
 
     <a href="/logout">Logout</a>

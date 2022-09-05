@@ -5,6 +5,8 @@ const { ensureAuth } = require('../middleware/auth')
 
 router.get('/', ensureAuth, todosController.getWatchList)
 
+router.get('/showSummary', todosController.showSummary)
+
 router.post('/searchShows', todosController.searchShows)
 
 router.post('/addToWatchList', todosController.addToWatchList)
