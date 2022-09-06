@@ -22,57 +22,57 @@
         </div>
     </nav>
     <div class="container">
+        
         <ul class="sidenav" id="mobile-demo">
             <li><a href="/todos">Watchlist</a></li>
             <li><a class="waves-effect waves-light btn" href="/logout">Log Out</a></li>
         </ul>
-        <h1>Search for a TV Show!</h1>
-        <nav>  
-            <div class="nav-wrapper">
-                <form action="/todos/searchShows" method="post">
-                    <div class="input-field">
-                        <input name="name" id="search" type="search" required>
-                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                        <i class="material-icons">close</i>
+        <div class="card z-depth-2">
+            <div class="card-content">
+                <h1 class="flow-text">Search for a TV Show!</h1>
+                <nav>  
+                    <div class="nav-wrapper">
+                        <form action="/todos/searchShows" method="post">
+                            <div class="input-field">
+                                <input name="name" id="search" type="search" required>
+                                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                                <i class="material-icons">close</i>
+                            </div>
+                        </form>
                     </div>
-                </form>
+                </nav>
             </div>
-        </nav>
-        
-        <h2><%= user.userName %> has <%= left %> shows to watch on their watchlist.</h2>
-        <div class="main">
-
-
-        <div class="showList">
-            <% watchList.forEach( el => { %>
-                <li class='watchListItem' data-id='<%=el.id%>'>
-                    <span class=" <%= el.watched === true ? 'completed' : 'not'%>"><%=el.tvShowName%></span>
-                    <span class="fa-solid fa-tv showTitle"></span>
-                    <span class='fa fa-trash del'></span>
-                </li>
-        <% }) %>  
         </div>
+
+        
+        <div class="main z-depth-2 card">
+            <h2 class="showCount"><%= user.userName %> has <%= left %> shows to watch on their watchlist.</h2>
         
 
-        <div class="summaryDisplay">
-            <% watchList.forEach( el => { %>
-                <li class='watchListItem' data-id='<%=el.id%>'>
-                    <img  id="<%=el.id%>img" class="hidden" src="<%=el.showImg%>" alt="">
-                    <span  id="<%=el.id%>sum" class="hidden"><%=el.showSum%></span>
-                </li>
-        <% }) %>
-            
 
-            <div class="summaryDisplay">
+            <div class="showList column">
+                <% watchList.forEach( el => { %>
+                    <li class='watchListItem collection-item' data-id='<%=el.id%>'>
+                        <span class=" <%= el.watched === true ? 'completed' : 'not'%>"><%=el.tvShowName%></span>
+                        <span class="fa-solid fa-tv showTitle"></span>
+                        <span class='fa fa-trash del'></span>
+                    </li>
+            <% }) %>  
+            </div>
+            
+    
+            <div class="summaryDisplay row">
                 <% watchList.forEach( el => { %>
                     <li class='watchListItem' data-id='<%=el.id%>'>
                         <img  id="<%=el.id%>img" class="hidden" src="<%=el.showImg%>" alt="">
                         <span  id="<%=el.id%>sum" class="hidden"><%=el.showSum%></span>
                     </li>
-                <% }) %>
+            <% }) %>
                 
+    
             </div>
         </div>
+        
     </div>
 
     <script src="/js/main.js"></script>

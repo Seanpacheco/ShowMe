@@ -22,16 +22,20 @@ li{
 }
 
 .main{
-    display:flex;
     
+   
 }
 
 .showList{
-    width:50%;
+    
+}
+
+.showCount{
+    
 }
 
 .summaryDisplay{
-    width:50%;
+    width: 50%;
 }
 
 body {
@@ -54,3 +58,4 @@ body {
 .searchContainer {
     padding: 1rem 0;
 }
+
