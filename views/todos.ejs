@@ -43,37 +43,29 @@
         <div class="main">
 
 
+
         <div class="showList">
             <% watchList.forEach( el => { %>
                 <li class='watchListItem' data-id='<%=el.id%>'>
                     <span class=" <%= el.watched === true ? 'completed' : 'not'%>"><%=el.tvShowName%></span>
-                    <span class="fa-solid fa-tv showTitle"></span>
+                    <a class="fa-solid fa-tv showTitle modal-trigger" href="#modal<%=el.id%>"></a>
                     <span class='fa fa-trash del'></span>
                 </li>
-        <% }) %>  
+            <% }) %>  
         </div>
-        
 
-        <div class="summaryDisplay">
+          <!-- Modal Trigger -->
+
+
+            <!-- Modal Structure -->
             <% watchList.forEach( el => { %>
-                <li class='watchListItem' data-id='<%=el.id%>'>
-                    <img  id="<%=el.id%>img" class="hidden" src="<%=el.showImg%>" alt="">
-                    <span  id="<%=el.id%>sum" class="hidden"><%=el.showSum%></span>
-                </li>
-        <% }) %>
-            
-
-            <div class="summaryDisplay">
-                <% watchList.forEach( el => { %>
-                    <li class='watchListItem' data-id='<%=el.id%>'>
-                        <img  id="<%=el.id%>img" class="hidden" src="<%=el.showImg%>" alt="">
-                        <span  id="<%=el.id%>sum" class="hidden"><%=el.showSum%></span>
-                    </li>
-                <% }) %>
-                
+            <div id="modal<%=el.id%>" class="modal">
+                <div class="modal-content">
+                    <img  id="<%=el.id%>img" src="<%=el.showImg%>" alt="">
+                <p><%=el.showSum%></p>
+                </div>
             </div>
-        </div>
-    </div>
+            <% }) %> 
 
     <script src="/js/main.js"></script>
     <script type="text/javascript" src="/js/materialize.js"></script>
