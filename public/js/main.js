@@ -1,3 +1,6 @@
+
+
+
 const deleteBtn = document.querySelectorAll('.del')
 const todoItem = document.querySelectorAll('span.not')
 const todoComplete = document.querySelectorAll('span.completed')
@@ -94,25 +97,12 @@ function showBio(click){
 
 
 // toggle mobile menu
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, {});
+  });
 
-const toggle = document.querySelector('.toggle')
-const menu = document.querySelector('.menu')
- 
-function toggleMenu() {
-    if (menu.classList.contains("active")) {
-        menu.classList.remove("active")
-        //adds menu icon
-        toggle.querySelector("a").innerHTML = "<i class ='fas fa-bars'></i>"
-    }else {
-        menu.classList.add("active")
-        //adds close icon
-        toggle.querySelector("a").innerHTML = "<i class ='fas fa-times'></i>"
-    }
-}
-
-//event listener
-toggle.addEventListener("click", toggleMenu, false)
-
+  
 function submitform() {   
     document.addToWatchList.submit(); 
 }
