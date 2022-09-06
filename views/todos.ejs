@@ -13,7 +13,7 @@
 <body>
     <nav>
         <div class="nav-wrapper">
-            <a href="#!" class="brand-logo">ShowMe</a>
+            <a href="/" class="brand-logo">ShowMe</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="/todos">Watchlist</a></li>
@@ -67,7 +67,7 @@
             <div id="modal<%=el.id%>" class="modal">
                 <div class="modal-content">
                     <img  id="<%=el.id%>img" src="<%=el.showImg%>" alt="">
-                <p><%=el.showSum%></p>
+                <%-el.showSum%>
                 </div>
             </div>
             <% }) %> 
