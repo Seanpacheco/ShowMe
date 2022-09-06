@@ -5,20 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Watchlist</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link type="text/css" rel="stylesheet" href="/css/materialize.css"  media="screen,projection"/>
     <script src="https://kit.fontawesome.com/b180e6371d.js" crossorigin="anonymous"></script>
-    <!-- CSS only -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <nav>
-        <ul class="menu">
-            <li class="logo"><a href="/">ShowMe</a></li>
-            <li class="menu-item"><a href="#">Watchlist</a></li>
-            <li class="menu-item button"><a href="/logout">Log Out</a></li>
-            <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
+        <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">ShowMe</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="/todos">Watchlist</a></li>
+            <li><a class="waves-effect waves-light btn" href="/logout">Log Out</a></li>
         </ul>
+        </div>
     </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="/todos">Watchlist</a></li>
+        <li><a class="waves-effect waves-light btn" href="/logout">Log Out</a></li>
+    </ul>
     <h1>Search for a TV Show!</h1>
     <form action="/todos/searchShows" method="post">
         <input name="name" type="text" placeholder="Type the name of the show">
@@ -62,7 +68,7 @@
 
 
     <a href="/logout">Logout</a>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="/js/main.js"></script>
+    <script type="text/javascript" src="/js/materialize.js"></script>
 </body>
 </html>
