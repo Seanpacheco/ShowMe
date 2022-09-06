@@ -3,7 +3,7 @@ body{
 }
 
 h1{
-    color: red;
+    color: rgb(238	110	115);
 }
 .completed{
     text-decoration: line-through;
@@ -30,8 +30,9 @@ li{
     
 }
 
-.showCount{
-    
+.watchCount{
+    padding: 10px;
+    text-align: center;
 }
 
 .summaryDisplay{
