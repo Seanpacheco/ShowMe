@@ -22,20 +22,25 @@
         </div>
     </nav>
     <div class="container">
+        
         <ul class="sidenav" id="mobile-demo">
             <li><a href="/todos">Watchlist</a></li>
             <li><a class="waves-effect waves-light btn" href="/logout">Log Out</a></li>
         </ul>
-        <h1>Search for a TV Show!</h1>
-        <nav>  
-            <div class="nav-wrapper">
-                <form action="/todos/searchShows" method="post">
-                    <div class="input-field">
-                        <input name="name" id="search" type="search" required>
-                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                        <i class="material-icons">close</i>
+        <div class="card z-depth-2">
+            <div class="card-content">
+                <h1 class="flow-text">Search for a TV Show!</h1>
+                <nav>  
+                    <div class="nav-wrapper">
+                        <form action="/todos/searchShows" method="post">
+                            <div class="input-field">
+                                <input name="name" id="search" type="search" required>
+                                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                                <i class="material-icons">close</i>
+                            </div>
+                        </form>
                     </div>
-                </form>
+                </nav>
             </div>
         </nav>
         
