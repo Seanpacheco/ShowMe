@@ -188,3 +188,7 @@ a {
         display: none;
     }
 }
+
+.card-content{
+    text-align: center;
+}
