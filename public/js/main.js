@@ -71,21 +71,6 @@ async function markIncomplete(){
     }
 }
 
-const showSummary = document.getElementsByClassName('showTitle')
-
-Array.from(showSummary).forEach((el)=>{
-    el.addEventListener('click', showBio)
-})
-
-
-function showBio(click){
-    
-    const showName = this.parentNode.dataset.id
-    console.log(showName)
-    click.target.classList.contains(`${showName}img`)
-	document.getElementById(`${showName}img`).classList.toggle('hidden')
-    document.getElementById(`${showName}sum`).classList.toggle('hidden')
-}
 
 // function showSumm(click){
 //     const showName = this.parentNode.dataset.id
@@ -102,6 +87,11 @@ document.addEventListener('DOMContentLoaded', function() {
     var instances = M.Sidenav.init(elems, {});
   });
 
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems, {});
+  });
+  
   
 function submitform() {   
     document.addToWatchList.submit(); 
