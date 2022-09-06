@@ -82,8 +82,6 @@ function showBio(click){
     click.target.classList.contains(`${showName}img`)
 	document.getElementById(`${showName}img`).classList.toggle('hidden')
     document.getElementById(`${showName}sum`).classList.toggle('hidden')
-    
-    
 }
 
 // function showSumm(click){
