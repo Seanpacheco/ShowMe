@@ -44,3 +44,10 @@ body {
 .brand-logo {
     margin-left: 1rem;
 }
+.resultImg{
+    height: 400px;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}

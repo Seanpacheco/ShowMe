@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="/css/style.css">
     <link type="text/css" rel="stylesheet" href="/css/materialize.css"  media="screen,projection"/>
     <script src="https://kit.fontawesome.com/b180e6371d.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>    
     <nav>
         <div class="nav-wrapper">
         <a href="#!" class="brand-logo">ShowMe</a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
             <li><a href="/todos">Watchlist</a></li>
             <li><a class="waves-effect waves-light btn" href="/logout">Log Out</a></li>
@@ -34,9 +35,9 @@
                     <div class="card">
                         <div class="card-image">
                             <% if(data[i].show.image === null) {%>
-                                <img src="https://static.tvmaze.com/images/no-img/no-img-portrait-text.png" alt="">
+                                <img class="resultImg" src="https://static.tvmaze.com/images/no-img/no-img-portrait-text.png" alt="">
                             <% } else{ %>  
-                                <img src="<%= data[i].show.image.original %>" alt="">
+                                <img class="resultImg" src="<%= data[i].show.image.original %>" alt="">
                             <% } %>
                             <form action="/todos/addToWatchList" method="post">
                                 <input type="hidden" value="<% if(data[i].show.image === null) 
@@ -46,7 +47,7 @@
                                 <input type="hidden" value="<%=data[i].show.summary%>" name="showSummary">
                                 <input type="hidden" value="<%=data[i].show.name%>" name="showName">
                                 <input type="hidden" value="<%=data[i].show.id%>" name="showId">
-                                <button class="btn btn-floating btn-large halfway-fab waves-effect waves-light red" type="submit" name="action">Add to Watchlist
+                                <button class="btn btn-floating btn-large halfway-fab waves-effect waves-light pulse red" type="submit" name="action">Add
                                     <i class="material-icons"></i>
                                 </button>
                             </form>
