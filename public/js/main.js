@@ -112,3 +112,7 @@ function toggleMenu() {
 
 //event listener
 toggle.addEventListener("click", toggleMenu, false)
+
+function submitform() {   
+    document.addToWatchList.submit(); 
+}
