@@ -53,13 +53,12 @@
             <% watchList.forEach( el => { %>
                 <li class='watchListItem' data-id='<%=el.id%>'>
                     <span class=" <%= el.watched === true ? 'completed' : 'not'%>"><%=el.tvShowName%></span>
+                    <!-- Modal Trigger -->
                     <a class="fa-solid fa-tv showTitle modal-trigger" href="#modal<%=el.id%>"></a>
                     <span class='fa fa-trash del'></span>
                 </li>
             <% }) %>  
         </div>
-
-          <!-- Modal Trigger -->
 
 
             <!-- Modal Structure -->
