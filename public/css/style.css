@@ -22,12 +22,16 @@ li{
 }
 
 .main{
-    
-   
+    display: flex;
+    justify-content: center;     
+}
+.name{
+    text-transform: capitalize;
 }
 
 .showList{
-    
+    text-align: center;
+    width: fit-content;    
 }
 
 .watchCount{
