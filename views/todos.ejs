@@ -44,20 +44,22 @@
             </div>
         </nav>
         
-        <h2 class="watchCount"><%= user.userName %> has <%= left %> shows to watch on their watchlist.</h2>
+        <h2 class="watchCount"><span class="name"><%= user.userName %></span> has <%= left %> shows to watch on their watchlist.</h2>
         <div class="main">
 
 
 
         <div class="showList">
-            <% watchList.forEach( el => { %>
-                <li class='watchListItem' data-id='<%=el.id%>'>
-                    <span class=" <%= el.watched === true ? 'completed' : 'not'%>"><%=el.tvShowName%></span>
-                    <!-- Modal Trigger -->
-                    <a class="fa-solid fa-tv showTitle modal-trigger" href="#modal<%=el.id%>"></a>
-                    <span class='fa fa-trash del'></span>
-                </li>
-            <% }) %>  
+            <ul class="collection">
+                <% watchList.forEach( el => { %>
+                    <li class='watchListItem collection-item' data-id='<%=el.id%>'>
+                        <span class=" <%= el.watched === true ? 'completed' : 'not'%>"><%=el.tvShowName%></span>
+                        <!-- Modal Trigger -->
+                        <a class="fa-solid fa-tv showTitle modal-trigger" href="#modal<%=el.id%>"></a>
+                        <span class='fa fa-trash del'></span>
+                    </li>
+                <% }) %> 
+            </ul> 
         </div>
 
 
@@ -65,8 +67,19 @@
             <% watchList.forEach( el => { %>
             <div id="modal<%=el.id%>" class="modal">
                 <div class="modal-content">
-                    <img  id="<%=el.id%>img" src="<%=el.showImg%>" alt="">
-                <%-el.showSum%>
+                    <div class="col s12 m7">
+                        <div class="card horizontal large">
+                          <div class="card-image">
+                            <img  id="<%=el.id%>img" src="<%=el.showImg%>" alt="">
+                          </div>
+                          <div class="card-stacked">
+                            <div class="card-content">
+                                <h2 class="header"><%=el.tvShowName%></h2>
+                                <%-el.showSum%>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                 </div>
             </div>
             <% }) %> 
