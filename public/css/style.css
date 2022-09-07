@@ -43,8 +43,24 @@ body {
     font-size: 16px;
 }
 
-.card-content{
+.card .card-content{
     text-align: center;
+    min-height: 11.5rem;
+}
+@media only screen and (min-width: 993px) {
+    .card .card-content {
+        min-height: 16.5rem;
+  }
+}
+@media only screen and (min-width: 1219px) {
+    .card .card-content {
+        min-height: 13.5rem;
+  }
+}
+@media only screen and (min-width: 1784px) {
+    .card .card-content {
+        min-height: 11.5rem;
+  }
 }
 .brand-logo {
     margin-left: 1rem;
