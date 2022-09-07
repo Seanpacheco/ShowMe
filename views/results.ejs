@@ -29,40 +29,75 @@
 
     <div class="container">  
         <h2>Results</h2>
-        <div class="row">
-            <% for(var i = 0; i < 8; i++) {%>
-                <div class="col s12 m6 l3">
-                    <div class="card">
-                        <div class="card-image">
-                            <% if(data[i].show.image === null) {%>
-                                <img class="resultImg" src="https://static.tvmaze.com/images/no-img/no-img-portrait-text.png" alt="">
-                            <% } else{ %>  
-                                <img class="resultImg" src="<%= data[i].show.image.original %>" alt="">
-                            <% } %>
-                            <form action="/todos/addToWatchList" method="post">
-                                <input type="hidden" value="<% if(data[i].show.image === null) 
-                                {%>https://static.tvmaze.com/images/no-img/no-img-portrait-text.png
-                                <% } else{ 
-                                    %><%= data[i].show.image.original %><% } %>" name="showPic">
-                                <input type="hidden" value="<%=data[i].show.summary%>" name="showSummary">
-                                <input type="hidden" value="<%=data[i].show.name%>" name="showName">
-                                <input type="hidden" value="<%=data[i].show.id%>" name="showId">
-                                <button class="btn tooltipped btn-floating halfway-fab waves-effect waves-light pulse red" data-position="bottom" data-tooltip="Add to Watchlist" type="submit" name="action">
-                                    <i class="material-icons">add</i>
-                                </button>
-                            </form>
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title"><%= data[i].show.name %></span>
-                            <div class="divider"></div>
-                            <% for(var n = 0; n < data[i].show.genres.length; n++) {%>
-                                <p><%= data[i].show.genres[n] %></p>
-                            <% } %>                            
+        <% if(data.length === 1) {%>
+            <div class="row">
+                    <div class="col s12 m8 l6" style="margin-left: 0;">
+                        <div class="card">
+                            <div class="card-image">
+                                <% if(data[0].show.image === null) {%>
+                                    <img class="resultImg" src="https://static.tvmaze.com/images/no-img/no-img-portrait-text.png" alt="">
+                                <% } else{ %>  
+                                    <img class="resultImg" src="<%= data[0].show.image.original %>" alt="">
+                                <% } %>
+                                <form action="/todos/addToWatchList" method="post">
+                                    <input type="hidden" value="<% if(data[0].show.image === null) 
+                                    {%>https://static.tvmaze.com/images/no-img/no-img-portrait-text.png
+                                    <% } else{ %>
+                                        <%= data[0].show.image.original %> <% } %>" name="showPic">
+                                    <input type="hidden" value="<%=data[0].show.summary%>" name="showSummary">
+                                    <input type="hidden" value="<%=data[0].show.name%>" name="showName">
+                                    <input type="hidden" value="<%=data[0].show.id%>" name="showId">
+                                    <button class="btn tooltipped btn-floating halfway-fab waves-effect waves-light pulse red" data-position="bottom" data-tooltip="Add to Watchlist" type="submit" name="action">
+                                        <i class="material-icons">add</i>
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title"><%= data[0].show.name %></span>
+                                <div class="divider"></div>
+                                <% for(var n = 0; n < data[0].show.genres.length; n++) {%>
+                                    <p><%= data[0].show.genres[n] %></p>
+                                <% } %>                            
+                            </div>
                         </div>
                     </div>
-                </div>
-            <% } %>
-        </div> 
+            </div> 
+        <% } else{ %>
+            <div class="row">
+                <% for(var i = 0; i < 8; i++) {%>
+                    <div class="col s12 m6 l3">
+                        <div class="card">
+                            <div class="card-image">
+                                <% if(data[i].show.image === null) {%>
+                                    <img class="resultImg" src="https://static.tvmaze.com/images/no-img/no-img-portrait-text.png" alt="">
+                                <% } else{ %>  
+                                    <img class="resultImg" src="<%= data[i].show.image.original %>" alt="">
+                                <% } %>
+                                <form action="/todos/addToWatchList" method="post">
+                                    <input type="hidden" value="<% if(data[i].show.image === null) 
+                                    {%>https://static.tvmaze.com/images/no-img/no-img-portrait-text.png
+                                    <% } else{ 
+                                        %><%= data[i].show.image.original %><% } %>" name="showPic">
+                                    <input type="hidden" value="<%=data[i].show.summary%>" name="showSummary">
+                                    <input type="hidden" value="<%=data[i].show.name%>" name="showName">
+                                    <input type="hidden" value="<%=data[i].show.id%>" name="showId">
+                                    <button class="btn tooltipped btn-floating halfway-fab waves-effect waves-light pulse red" data-position="bottom" data-tooltip="Add to Watchlist" type="submit" name="action">
+                                        <i class="material-icons">add</i>
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title"><%= data[i].show.name %></span>
+                                <div class="divider"></div>
+                                <% for(var n = 0; n < data[i].show.genres.length; n++) {%>
+                                    <p><%= data[i].show.genres[n] %></p>
+                                <% } %>                            
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            </div> 
+        <% } %>
     </div>
     
     <script src="/js/main.js"></script>
