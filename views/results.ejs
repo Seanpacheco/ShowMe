@@ -30,7 +30,8 @@
     <div class="container">  
         <h2>Results</h2>
         <div class="row">
-            <% for(var i = 0; i < data.length; i++) {%>
+            <% for(var i = 0; i < 8; i++) {%>
+                <% if (i === data.length) break; %>
                 <div class="col s12 m6 l3">
                     <div class="card">
                         <div class="card-image">
