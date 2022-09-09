@@ -4777,7 +4777,7 @@ small {
 
 .card.small .card-content, .card.medium .card-content, .card.large .card-content {
   max-height: 100%;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .card.small .card-action, .card.medium .card-action, .card.large .card-action {
