@@ -1,7 +1,7 @@
 const Todo = require('../models/Todo')
 
 module.exports = {
-    getWatchList: async (req,res)=>{
+    getLists: async (req,res)=>{
         console.log(req.user)
         try{
             const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
@@ -19,21 +19,21 @@ module.exports = {
             console.log(err)
         }
     },
-    getTodaysSchedule: async (req,res)=>{
-        console.log(req.user)
-        try{
-            const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
-            const todaysDate = new Date()
-            const dateInput = todaysDate.toLocaleDateString('en-CA', options)
-            console.log(dateInput)
-            const scheduleFetch = await fetch(`https://api.tvmaze.com/search/shows?q=${dateInput}&country=US`)
-            const schedule = await scheduleFetch.json()
-            console.log(schedule)
-            res.send(schedule)
-        }catch(err){
-            console.log(err)
-        }
-    },
+    // getTodaysSchedule: async (req,res)=>{
+    //     console.log(req.user)
+    //     try{
+    //         const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
+    //         const todaysDate = new Date()
+    //         const dateInput = todaysDate.toLocaleDateString('en-CA', options)
+    //         console.log(dateInput)
+    //         const scheduleFetch = await fetch(`https://api.tvmaze.com/search/shows?q=${dateInput}&country=US`)
+    //         const schedule = await scheduleFetch.json()
+    //         console.log(schedule)
+    //         res.send(schedule)
+    //     }catch(err){
+    //         console.log(err)
+    //     }
+    // },
     searchShows: async(req,res)=>{
         console.log(req.user)
         try{
