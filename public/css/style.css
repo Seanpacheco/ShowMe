@@ -23,12 +23,23 @@ li{
 
 .main{
     display: flex;
-    justify-content: center;     
+    justify-content: center;
+    margin: 1rem;     
+    padding: 1rem;
+}
+.schedule{
+    margin: 1rem;
+    padding: 1rem;
 }
 .name{
     text-transform: capitalize;
 }
-
+.list{
+    display: flex;
+}
+.watchListItem span {
+    margin: 5px;
+}
 .showList{
     text-align: center;
     width: fit-content;    

@@ -20,70 +20,95 @@
                 <li><a class="waves-effect waves-light btn" href="/logout">Log Out</a></li>
             </ul>
         </div>
-    </nav>
-    <div class="container">
-        
-        <ul class="sidenav" id="mobile-demo">
-            <li><a href="/todos">Watchlist</a></li>
-            <li><a class="waves-effect waves-light btn" href="/logout">Log Out</a></li>
-        </ul>
-        <div class="card z-depth-2">
-            <div class="card-content">
-                <h1 class="flow-text">Search for a TV Show!</h1>
-                <nav>  
-                    <div class="nav-wrapper">
-                        <form action="/todos/searchShows" method="post">
-                            <div class="input-field">
-                                <input name="name" id="search" type="search" required>
-                                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                                <i class="material-icons">close</i>
+    </nav>   
+            <ul class="sidenav" id="mobile-demo">
+                <li><a href="/todos">Watchlist</a></li>
+                <li><a class="waves-effect waves-light btn" href="/logout">Log Out</a></li>
+            </ul>
+    <div class="container">                   
+            <div class="card z-depth-2">
+                <div class="container">
+                    <div class="card-content">
+                        <h1 class="flow-text">Search for a TV Show!</h1>
+                        <nav>  
+                            <div class="nav-wrapper">
+                                <form action="/todos/searchShows" method="post">
+                                    <div class="input-field">
+                                        <input name="name" id="search" type="search" required>
+                                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                                        <i class="material-icons">close</i>
+                                    </div>
+                                </form>
                             </div>
-                        </form>
+                        </nav>
                     </div>
-                </nav>
-            </div>
-        </nav>
-        
-        <h2 class="watchCount"><span class="name"><%= user.userName %></span> has <%= left %> shows to watch on their watchlist.</h2>
-        <div class="main">
-
-
-
-        <div class="showList">
-            <ul class="collection">
-                <% watchList.forEach( el => { %>
-                    <li class='watchListItem collection-item' data-id='<%=el.id%>'>
-                        <span class=" <%= el.watched === true ? 'completed' : 'not'%>"><%=el.tvShowName%></span>
-                        <!-- Modal Trigger -->
-                        <a class="fa-solid fa-tv showTitle modal-trigger" href="#modal<%=el.id%>"></a>
-                        <span class='fa fa-trash del'></span>
-                    </li>
-                <% }) %> 
-            </ul> 
-        </div>
-
-
-            <!-- Modal Structure -->
-            <% watchList.forEach( el => { %>
-            <div id="modal<%=el.id%>" class="modal">
-                <div class="modal-content">
-                    <div class="col s12 m7">
-                        <div class="card horizontal large">
-                          <div class="card-image">
-                            <img  id="<%=el.id%>img" src="<%=el.showImg%>" alt="">
-                          </div>
-                          <div class="card-stacked">
-                            <div class="card-content card-summary">
-                                <h2 class="header"><%=el.tvShowName%></h2>
-                                <%-el.showSum%>
+                </div>
+                <div class="list">
+                    <div class="container schedule">
+                            <div class="showList">
+                                <h2 class="watchCount"><span class="name"><%= user.userName %></span> has <%= left %> shows to watch on their watchlist.</h2>
+                                <ul class="collection">
+                                    <% watchList.forEach( el => { %>
+                                        <li class='watchListItem collection-item' data-id='<%=el.id%>'>
+                                            <span class=" <%= el.watched === true ? 'completed' : 'not'%>"><%=el.tvShowName%></span>
+                                            <!-- Modal Trigger -->
+                                            <a class="fa-solid fa-tv showTitle modal-trigger" href="#modal<%=el.id%>"></a>
+                                            <span class='fa fa-trash del'></span>
+                                        </li>
+                                    <% }) %> 
+                                </ul> 
                             </div>
-                          </div>
-                        </div>
-                      </div>
+
+                            <!-- Modal Structure -->
+                            <% watchList.forEach( el => { %>
+                            <div id="modal<%=el.id%>" class="modal">
+                                <div class="modal-content">
+                                    <div class="col s12 m7">
+                                        <div class="card horizontal large">
+                                            <div class="card-image">
+                                                <img  id="<%=el.id%>img" src="<%=el.showImg%>" alt="">
+                                            </div>
+                                            <div class="card-stacked">
+                                                <div class="card-content card-summary">
+                                                    <h2 class="header"><%=el.tvShowName%></h2>
+                                                    <%-el.showSum%>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <% }) %> 
+                    </div>
+                    
+                    <div class="container schedule">           
+                        <h2 class="watchCount">What's on today</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Season</th>
+                                    <th>Episode</th>
+                                    <th>Airtime</th>
+                                </tr>
+                            </thead>           
+                            <tbody>
+                                <% for(var i = 0; i < 8; i++) {%>
+                                <% if (i === schedule.length) break; %>           
+                                <tr>
+                                    <td><%=schedule[i]._embedded.show.name%></td>
+                                    <td><%=schedule[i].season%></td>
+                                    <td><%=schedule[i].number%></td>
+                                    <td><%=schedule[i].airtime%></td>
+                                </tr>
+                                <% } %>           
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-            <% }) %> 
-
+        </div>
+    </div>
     <script src="/js/main.js"></script>
     <script type="text/javascript" src="/js/materialize.js"></script>
 </body>

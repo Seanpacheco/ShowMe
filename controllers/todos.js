@@ -4,10 +4,32 @@ module.exports = {
     getWatchList: async (req,res)=>{
         console.log(req.user)
         try{
+            const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
+            const todaysDate = new Date()
+            const dateInput = todaysDate.toLocaleDateString('en-CA', options)
+            console.log(dateInput)
+            const scheduleFetch = await fetch(`https://api.tvmaze.com/schedule/web?date=${dateInput}&country=US`)
+            const schedule = await scheduleFetch.json()
+            console.log(schedule)
             const watchListItems = await Todo.find({userId:req.user.id})
             const itemsLeft = await Todo.countDocuments({userId:req.user.id})
-            res.render('todos.ejs', {watchList: watchListItems, left: itemsLeft, user: req.user,})
+            res.render('todos.ejs', {watchList: watchListItems, left: itemsLeft, user: req.user, schedule})
             console.log(watchListItems)
+        }catch(err){
+            console.log(err)
+        }
+    },
+    getTodaysSchedule: async (req,res)=>{
+        console.log(req.user)
+        try{
+            const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
+            const todaysDate = new Date()
+            const dateInput = todaysDate.toLocaleDateString('en-CA', options)
+            console.log(dateInput)
+            const scheduleFetch = await fetch(`https://api.tvmaze.com/search/shows?q=${dateInput}&country=US`)
+            const schedule = await scheduleFetch.json()
+            console.log(schedule)
+            res.send(schedule)
         }catch(err){
             console.log(err)
         }
@@ -17,8 +39,8 @@ module.exports = {
         try{
             const name = req.body.name
             console.log(name)
-            const abc = await fetch(`https://api.tvmaze.com/search/shows?q=${name}`)
-            const data = await abc.json()
+            const searchResult = await fetch(`https://api.tvmaze.com/search/shows?q=${name}`)
+            const data = await searchResult.json()
             console.log(data)
             res.render('results.ejs',{data})
         } catch(error){
