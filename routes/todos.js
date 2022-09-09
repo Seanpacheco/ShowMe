@@ -3,7 +3,9 @@ const router = express.Router()
 const todosController = require('../controllers/todos') 
 const { ensureAuth } = require('../middleware/auth')
 
-router.get('/', ensureAuth, todosController.getWatchList)
+router.get('/', ensureAuth, todosController.getLists)
+
+// router.get('/', ensureAuth, todosController.getTodaysSchedule)
 
 router.post('/searchShows', todosController.searchShows)
 

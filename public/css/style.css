@@ -23,12 +23,31 @@ li{
 
 .main{
     display: flex;
-    justify-content: center;     
+    justify-content: center;
+    margin: 1rem;     
+    padding: 1rem;
+}
+.schedule{
+    margin: 1rem;
+    padding: 1rem;
 }
 .name{
     text-transform: capitalize;
 }
+.list{
+    display: flex;
+    flex-wrap: wrap;
+}
+@media only screen and (min-width: 810px) {
+    .list{
+        display: flex;
+        flex-wrap: nowrap;
+    }
+}
 
+.watchListItem span {
+    margin: 5px;
+}
 .showList{
     text-align: center;
     width: fit-content;    
@@ -50,6 +69,14 @@ body {
 .card .card-content{
     text-align: center;
     min-height: 11.5rem;
+}
+.card .card-image .sumImg {
+    display: none;
+}
+@media only screen and (min-width: 810px) {
+    .card .card-image .sumImg {
+        display: block;
+    }
 }
 @media only screen and (min-width: 993px) {
     .card .card-content {
