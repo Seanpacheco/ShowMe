@@ -8,7 +8,7 @@ module.exports = {
             const todaysDate = new Date()
             const dateInput = todaysDate.toLocaleDateString('en-CA', options)
             console.log(dateInput)
-            const scheduleFetch = await fetch(`https://api.tvmaze.com/schedule/web?date=${dateInput}&country=US`)
+            const scheduleFetch = await fetch(`https://api.tvmaze.com/schedule?date=${dateInput}&country=US`)
             const schedule = await scheduleFetch.json()
             console.log(schedule)
             const watchListItems = await Todo.find({userId:req.user.id})
