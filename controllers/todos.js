@@ -1,5 +1,5 @@
 const Todo = require('../models/Todo')
-const fetch = require("node-fetch");
+const fetch = import("node-fetch");
 
 module.exports = {
     getLists: async (req,res)=>{
