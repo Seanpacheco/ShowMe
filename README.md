@@ -1,90 +1,20 @@
-# Introduction
+# PlayRight
+A fullstack webapp built using MVC Architecture, that calls an API to search a database of TV shows and returns the results to the user. We implemented  'authoraztion' so users can save shows to their personal watchlist and see what shows are on for the given date.
 
-A Simple ToDo App is built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize the app 
+# Live Version
+https://showme.onrender.com/
 
----
+![Screenshot](public/assets/showmehome.png)
+![Screenshot](public/assets/showme.png)
 
-> Be sure to add that lovely star 😀 and fork it for your own copy
+## How It's Made:
 
----
+**Tech used:** HTML, CSS, JavaScript, NodeJS, Express, MongoDb
 
-# Objectives
-
-- It's a beginner level app created to understand how MVC concept and logins are added
-
----
-
-# Who is this for? 
-
-- It's for beginners & intermediates with little more experience, to help understand the various aspects of building a node app with some complex features
-
----
-
-# Packages/Dependencies used 
-
-bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator
-
----
-
-# Install all the dependencies or node packages used for development via Terminal
-
-`npm install` 
-
----
-
-# Things to add
-
-- Create a `.env` file and add the following as `key: value` 
-  - PORT: 2121 (can be any port example: 3000) 
-  - DB_STRING: `your database URI` 
- ---
- 
- Have fun testing and improving it! 😎
+I used NodeJS and Express to pull results from the tvMaze API depending on the search parameters input by the user and displays each show with an img and list of genres. Users then have the option to add a show to their personal watchlist after making an account and logging in. The user can then go to a Dashboard and see their current watchlist and a list of shows on tv for the current date.
 
 
-Git Flow
-<br>
-Find a ticket number
-<br>
-git checkout -b tix-#
-<br>
-Make changes
-<br>
-git add .
-<br>
-git commit -m"ticket# changes made"
-<br>
-git pull origin main
-<br>
-git push -u origin tix-#
-<br>
-Now we need to delete branch locally since it is completed
-<br> 
-git checkout main
-<br>
-We need to get all changes from the repository and not from local
-<br>
-git pull to update main
-<br>
-Now Delete branch from local
-<br>
-git branch -D tix-#
-<br>
-WARNING DO NOT DELETE MAIN
-ONLY DELETE THE BRANCH YOU CREATED which will be the ticket number etc.
+## Lessons Learned:
 
-<br>
-Git Resolve Conflict
-<br>
-git pull origin main
-<br>
-choose which change to keep
-<br>
-git add .
-<br>
-git commit -m"dfasdd"
-<br>
-git push
-<br>
-pull request conflict will be resolved and can now merge
-<br>
+I learned how to connect and interact with a MongoDb database on the backend. Also how to pass parameters from the client side to the server side. 
+
